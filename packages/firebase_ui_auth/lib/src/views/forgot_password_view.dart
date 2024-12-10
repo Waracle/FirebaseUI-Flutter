@@ -79,7 +79,12 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
 
       Dio dio = Dio();
 
-      await dio.post(url + '/v2/auth/password-reset', data: {'email': email});
+      final dioWithHeaders = dio
+        ..options.headers['Accept-Language'] = Platform.localeName.split('_')[0]
+        ..options.headers['Accept'] = 'application/json';
+
+      await dioWithHeaders
+          .post(url + '/v2/auth/password-reset', data: {'email': email});
       // await auth.sendPasswordResetEmail(
       //   email: email,
       //   actionCodeSettings: widget.actionCodeSettings,

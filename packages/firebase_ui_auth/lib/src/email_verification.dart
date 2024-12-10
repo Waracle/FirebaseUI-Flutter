@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fba;
@@ -120,7 +121,7 @@ class EmailVerificationController extends ValueNotifier<EmailVerificationState>
 
       final dioWithHeaders = dio
         ..options.headers['Authorization'] = 'Bearer ${token.token}'
-        ..options.headers['Accept-Language'] = 'en'
+        ..options.headers['Accept-Language'] = Platform.localeName.split('_')[0]
         ..options.headers['Accept'] = 'application/json';
 
       await dioWithHeaders.post(
