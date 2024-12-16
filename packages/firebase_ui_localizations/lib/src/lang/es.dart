@@ -273,76 +273,77 @@ class EsLocalizations extends FirebaseUILocalizationLabels {
       "La contraseña no es válida o el usuario no tiene una contraseña";
 
   @override
-  String get uploadButtonText => "Upload file";
+  String get uploadButtonText => "Cargar archivo";
 
   @override
-  String get verifyEmailTitle => "Verify your email";
+  String get verifyEmailTitle => "Verifica tu email";
 
   @override
   String get verificationEmailSentText =>
-      "A verification email has been sent to your email address. Please check your email and click on the link to verify your email address.";
+      "Se ha enviado un email de verificación ha su correo electrónico. Por favor, revise su correo y haga click en el link para verificar su dirección de correo electrónico.";
 
   @override
   String get verificationFailedText =>
-      "We couldn't verify your email address. ";
+      "No pudimos verificar su dirección de correo electrónico. ";
 
   @override
-  String get resendVerificationEmailButtonLabel => "Resend verification email";
+  String get resendVerificationEmailButtonLabel =>
+      "Reenviar email de verificación";
 
   @override
-  String get verificationEmailSentTextShort => "Verification email sent";
+  String get verificationEmailSentTextShort => "Email de verificación enviado";
 
   @override
-  String get emailIsNotVerifiedText => "Email is not verified";
+  String get emailIsNotVerifiedText => "Correo electrónico no verificado";
 
   @override
   String get waitingForEmailVerificationText =>
-      "Waiting for email verification";
+      "Esperando verificación de correo electrónico";
 
   @override
-  String get dismissButtonLabel => "Dismiss";
+  String get dismissButtonLabel => "Ignorar";
 
   @override
   String get okButtonLabel => "OK";
 
   @override
   String get checkEmailHintText =>
-      "Please check your email and click the link to verify your email address.";
+      "Por favor, revise su correo y haga click en el link para verificar su dirección de correo electrónico.";
 
   @override
-  String get doneButtonLabel => "Done";
+  String get doneButtonLabel => "Hecho";
 
   @override
   String get invalidVerificationCodeErrorText =>
-      "The code you entered is invalid. Please try again.";
+      "El código no es válido. Por favor, inténtelo de nuevo.";
 
   @override
-  String get ulinkProviderAlertTitle => "Unlink provider";
+  String get ulinkProviderAlertTitle => "Desvincular proveedor";
 
   @override
-  String get confirmUnlinkButtonLabel => "Unlink";
+  String get confirmUnlinkButtonLabel => "Desvincular";
 
   @override
-  String get cancelButtonLabel => "Cancel";
+  String get cancelButtonLabel => "Cancelar";
 
   @override
   String get unlinkProviderAlertMessage =>
-      "Are you sure you want to unlink this provider?";
+      "¿Está seguro que quiere desvincular este proveedor?";
 
   @override
   String get weakPasswordErrorText =>
-      "Password should be at least 6 characters";
+      "La contraseña debe contener al menos 6 caracteres";
 
   @override
-  String get confirmDeleteAccountAlertTitle => "Confirm account deletion";
+  String get confirmDeleteAccountAlertTitle => "Confirmar, eliminar cuenta";
 
   @override
   String get confirmDeleteAccountAlertMessage =>
-      "Are you sure you want to delete your account?";
+      "¿Está seguro que quiere eliminar su cuenta?";
 
   @override
-  String get confirmDeleteAccountButtonLabel => "Yes, delete";
+  String get confirmDeleteAccountButtonLabel => "Sí, eliminar";
 
   @override
-  String get sendVerificationEmailLabel => "Send verification email";
+  String get sendVerificationEmailLabel => "Enviar email de verificación";
 }
