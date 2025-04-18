@@ -2,8 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fba;
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 
 /// All possible states of the email verification process.
@@ -102,7 +107,27 @@ class EmailVerificationController extends ValueNotifier<EmailVerificationState>
   ) async {
     value = EmailVerificationState.sending;
     try {
-      await user.sendEmailVerification(actionCodeSettings);
+      //TODO: Update this
+      FirebaseRemoteConfig remoteConfig = FirebaseRemoteConfig.instance;
+
+      final json = remoteConfig.getString('environments');
+      final envs = jsonDecode(json) as Map<String, dynamic>;
+      final listOfEnvs = envs['environments'] as List<dynamic>;
+      final url = listOfEnvs.first['baseUrl'];
+
+      Dio dio = Dio();
+
+      final token = await user.getIdTokenResult();
+
+      final dioWithHeaders = dio
+        ..options.headers['Authorization'] = 'Bearer ${token.token}'
+        ..options.headers['Accept-Language'] = Platform.localeName.split('_')[0]
+        ..options.headers['Accept'] = 'application/json';
+
+      await dioWithHeaders.post(
+        url + '/v2/auth/email-verification',
+      );
+      // await user.sendEmailVerification(actionCodeSettings);
     } on Exception catch (e) {
       error = e;
       value = EmailVerificationState.failed;
